@@ -25,7 +25,7 @@ export default function CreateModal({ open, onClose, refetch }) {
     setServiceId(null);
     setEnvironmentId(null);
     setFormValues(null);
-    if (refetch) refetch();
+    queryClient.invalidateQueries({ queryKey: ['projects'] });
     if (serviceId) {
       queryClient.invalidateQueries({ queryKey: ['serviceDetails', serviceId] });
     }

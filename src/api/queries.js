@@ -51,6 +51,7 @@ export const api = {
             edges {
               node {
                 id
+                environmentId
                 domains {
                   serviceDomains { domain }
                   customDomains { domain }
