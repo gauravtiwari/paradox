@@ -4,7 +4,7 @@ import DeploymentStatus from './DeploymentStatus';
 import { useDeployService } from '../hooks/useProjects.js';
 import { useQueryClient } from '@tanstack/react-query';
 
-export default function ServiceDetails({ service }) {
+export default function ServiceDetails({ service, canRedeploy: canRedeployProp }) {
   const queryClient = useQueryClient();
   const { data, isLoading, error } = useQuery({
     queryKey: ['serviceDetails', service.id],
@@ -49,7 +49,7 @@ export default function ServiceDetails({ service }) {
   const latestInstance = instances[0]?.node;
   const latestDeployment = latestInstance?.latestDeployment;
   const environmentId = latestInstance?.environmentId;
-  const canRedeploy = latestDeployment && latestDeployment.status === 'SUCCESS' && environmentId && service.id;
+  const canRedeploy = latestDeployment && latestDeployment.status === 'SUCCESS' && environmentId && service.id && canRedeployProp;
 
   return (
     <div className="service-details space-y-2">

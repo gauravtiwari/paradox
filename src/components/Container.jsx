@@ -55,7 +55,7 @@ export default function Container({ project, refetch }) {
         <div className="mt-4 space-y-2">
           <h2 className="text-sm font-semibold text-gray-700">Services</h2>
           {project.services.edges.map((edge) => (
-            <ServiceDetails key={edge.node.id} service={edge.node} />
+            <ServiceDetails key={edge.node.id} service={edge.node} canRedeploy={showDeleteButton} />
           ))}
         </div>
       )}
