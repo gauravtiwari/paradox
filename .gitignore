@@ -1,0 +1,34 @@
+# dependencies
+node_modules/
+
+# production
+/dist
+/dist-server
+/build
+
+# misc
+.DS_Store
+.env*
+*.log
+yarn.lock
+tmp/
+.cache/
+
+# testing
+coverage/
+
+# local
+*.local
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional: ignore mock service worker cache
+mockServiceWorker.js.map 
