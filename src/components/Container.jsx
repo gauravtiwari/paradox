@@ -21,15 +21,18 @@ export default function Container({ project, refetch }) {
     });
   };
 
+  const showDeleteButton = project.name !== 'Paradox';
+  
   return (
     <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6 hover:shadow-lg transition-shadow flex flex-col gap-2 relative">
-      <DeleteModal
+      {showDeleteButton && <DeleteModal
         open={deleteOpen}
         onClose={() => setDeleteOpen(false)}
         onConfirm={handleDelete}
         isLoading={mutation.isPending}
         projectName={project.name}
-      />
+      />}
+      {showDeleteButton && (
       <div className="flex justify-between items-start">
         <div>
           <h1 className="text-lg font-bold mb-1 text-gray-900">{project.name}</h1>
@@ -44,6 +47,7 @@ export default function Container({ project, refetch }) {
           Delete
         </button>
       </div>
+      )}
 
       {project.services?.edges?.length > 0 && (
         <div className="mt-4 space-y-2">
